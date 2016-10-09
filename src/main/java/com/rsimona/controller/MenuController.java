@@ -26,7 +26,7 @@ import org.primefaces.model.menu.MenuModel;
  * @author Ramon
  */
 @Named
-@ViewScoped
+@SessionScoped
 public class MenuController implements Serializable {
 
     @EJB
@@ -40,6 +40,14 @@ public class MenuController implements Serializable {
         this.listarMenus();
         model = new DefaultMenuModel();
         this.establecerPermisos();
+    }
+    
+        public MenuModel getModel() {
+        return model;
+    }
+
+    public void setModel(MenuModel model) {
+        this.model = model;
     }
 
     public void listarMenus() {
@@ -62,6 +70,7 @@ public class MenuController implements Serializable {
                     if (submenu != null) {
                         if (submenu.getCodigo() == m.getCodigo()) {
                             DefaultMenuItem item = new DefaultMenuItem(i.getNombre());
+                            item.setUrl(i.getUrl());
                             firstSubMenu.addElement(item);
                         }
                     }
@@ -69,17 +78,14 @@ public class MenuController implements Serializable {
                 model.addElement(firstSubMenu);
             } else if (m.getSubmenu() == null && m.getTipoUsuario().equals(us.getTipo())) {
                 DefaultMenuItem item = new DefaultMenuItem(m.getNombre());
+                item.setUrl(m.getUrl());
                 model.addElement(item);
             }
         }
     }
 
-    public MenuModel getModel() {
-        return model;
-    }
-
-    public void setModel(MenuModel model) {
-        this.model = model;
+    public void cerrarSesion(){
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
     }
 
 }

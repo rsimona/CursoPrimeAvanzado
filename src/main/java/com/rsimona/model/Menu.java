@@ -26,6 +26,9 @@ public class Menu implements Serializable {
 
     @Column(name = "nombre")
     private String nombre;
+    
+    @Column(name = "url")
+    private String url;
 
     @Column(name = "tipo")
     private String tipo;
@@ -54,6 +57,14 @@ public class Menu implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getTipo() {
