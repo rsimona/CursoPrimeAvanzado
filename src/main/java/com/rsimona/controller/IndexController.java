@@ -50,6 +50,8 @@ public class IndexController implements Serializable {
         try {
             us = EJBUsuario.iniciarSesion(usuario);
             if (us != null) {
+                // Almacenar en la sesión de JSF
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
                 redireccion = "/protegido/principal?faces-redirect=true";
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "El usuario o contraseña no son correctos"));
