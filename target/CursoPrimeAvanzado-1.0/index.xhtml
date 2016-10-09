@@ -5,25 +5,28 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
-    <h:body>
-        <h:form>
-            <p:messages autoUpdate="true" showDetail="true"/>
-            <h:panelGrid columns="2">
-                <p:outputLabel for="txtUsuario" value="Usuario"/>
-                <p:inputText id="txtUsuario" required="true" value="#{indexController.usuario.usuario}"/>
+    <div id="cuadro">
+        <h:body id="principal">
+            <h:form>
+                <p:messages autoUpdate="true" showDetail="true"/>
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="txtUsuario" value="Usuario"/>
+                    <p:inputText id="txtUsuario" required="true" value="#{indexController.usuario.usuario}"/>
 
-                <p:outputLabel for="txtClave" value="Clave"/>
-                <p:password id="txtClave" required="true" value="#{indexController.usuario.clave}"/>
-                
-                <p:column/>
-                <p:commandButton icon="ui-icon-key" value="Iniciar Sesión" action="#{indexController.iniciarSesion()}"/>
-            </h:panelGrid>
-            
-            <p:separator/>
-            
-            <p:link value="Crear cuenta" outcome="usuario"/>
-        </h:form>
-    </h:body>
+                    <p:outputLabel for="txtClave" value="Clave"/>
+                    <p:password id="txtClave" required="true" value="#{indexController.usuario.clave}"/>
+
+                    <p:column/>
+                    <p:commandButton icon="ui-icon-key" value="Iniciar Sesión" action="#{indexController.iniciarSesion()}"/>
+                </h:panelGrid>
+
+                <p:separator/>
+
+                <p:link value="Crear cuenta" outcome="usuario"/>
+            </h:form>
+        </h:body>
+    </div>
 </html>
 

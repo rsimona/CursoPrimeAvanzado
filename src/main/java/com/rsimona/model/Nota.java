@@ -45,7 +45,7 @@ public class Nota implements Serializable {
     private String cuerpo;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "fecha")
+    @Column(name = "fecha", insertable = false)
     private Date fecha;
 
     @Column(name = "comentarioAdmin")
