@@ -62,6 +62,8 @@ public class UsuarioController implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Se registró"));
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error!"));
+        }finally{
+            FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
         }
     }
 

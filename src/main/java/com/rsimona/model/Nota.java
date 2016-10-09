@@ -52,7 +52,7 @@ public class Nota implements Serializable {
     private String comentarioAdmin;
 
     @Column(name = "valorizacion")
-    private short valorizacion;
+    private Integer valorizacion;
 
     public int getCodigo() {
         return codigo;
@@ -110,11 +110,11 @@ public class Nota implements Serializable {
         this.comentarioAdmin = comentarioAdmin;
     }
 
-    public short getValorizacion() {
+    public Integer getValorizacion() {
         return valorizacion;
     }
 
-    public void setValorizacion(short valorizacion) {
+    public void setValorizacion(Integer valorizacion) {
         this.valorizacion = valorizacion;
     }
 

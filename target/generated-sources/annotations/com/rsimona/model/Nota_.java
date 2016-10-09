@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-10-09T18:37:30")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-10-09T20:16:10")
 @StaticMetamodel(Nota.class)
 public class Nota_ { 
 
@@ -17,7 +17,7 @@ public class Nota_ {
     public static volatile SingularAttribute<Nota, Persona> persona;
     public static volatile SingularAttribute<Nota, Categoria> categoria;
     public static volatile SingularAttribute<Nota, String> encabezado;
-    public static volatile SingularAttribute<Nota, Short> valorizacion;
+    public static volatile SingularAttribute<Nota, Integer> valorizacion;
     public static volatile SingularAttribute<Nota, String> cuerpo;
 
 }
