@@ -14,9 +14,11 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 
 import javax.inject.Named;
+import org.primefaces.component.selectonemenu.SelectOneMenu;
 
 /**
  *
@@ -30,6 +32,8 @@ public class IndexController implements Serializable {
     private UsuarioFacadeLocal EJBUsuario;
 
     private Usuario usuario;
+    private String idSeleccio;
+    private SelectOneMenu oneMenu;
 
     @PostConstruct
     public void init() {
@@ -44,9 +48,36 @@ public class IndexController implements Serializable {
         this.usuario = usuario;
     }
 
+    public String getIdSeleccio() {
+        return idSeleccio;
+    }
+
+    public void setIdSeleccio(String idSeleccio) {
+        this.idSeleccio = idSeleccio;
+    }
+
+    public SelectOneMenu getOneMenu() {
+        return oneMenu;
+    }
+
+    public void setOneMenu(SelectOneMenu oneMenu) {
+        this.oneMenu = oneMenu;
+    }
+
+    public void pintar(final AjaxBehaviorEvent event) {
+        System.out.println(((SelectOneMenu) event.getComponent()).getValue());
+    }
+
+    public void pintar2(final AjaxBehaviorEvent event) {
+        System.out.println("primer" + ((SelectOneMenu) event.getComponent()).getValue());
+    }
+
     public String iniciarSesion() {
         Usuario us;
         String redireccion = null;
+
+        System.out.println("sessio: " + idSeleccio);
+
         try {
             us = EJBUsuario.iniciarSesion(usuario);
             if (us != null) {
